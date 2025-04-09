@@ -22,90 +22,112 @@ type Produto = {
 export default function Dashboard() {
   const [produtos, setProdutos] = useState<Produto[]>([]);
 
-  useEffect(() => {
-    const dadosFicticios: Produto[] = [
-      { id: 1, nome: 'Camiseta', categoria: 'Roupas', preco: 'R$ 49,90', estoque: 25, fornecedor: 'Loja A' },
-      { id: 2, nome: 'Notebook', categoria: 'Eletrônicos', preco: 'R$ 3.200,00', estoque: 7, fornecedor: 'Fornecedor X' },
-      { id: 3, nome: 'Café', categoria: 'Alimentos', preco: 'R$ 17,50', estoque: 120, fornecedor: 'Mercado Central' },
-    ];
-    setProdutos(dadosFicticios);
-  }, []);
-
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Header */}
       <Header />
 
-      {/* Subheader */}
-      <div className="bg-zinc-400 h-6 w-full" />
-
       {/* Main Content */}
       <div className="p-4 grid grid-cols-6 gap-4">
         {/* Left - Mapa */}
         <div className="col-span-4 space-y-4">
-          <Card><CardContent className="h-6 w-1/3" /></Card>
 
-          <Card className="h-72">
-            <CardContent className="h-full p-0 overflow-hidden">
-              <Mapa />
-            </CardContent>
-          </Card>
+          <Card className="bg-blue-900 rounded-xl p-4 text-white space-y-4 h-[500px]">
+
+  {/* Campo de filtro no canto superior esquerdo */}
+  <div>
+    <input
+      type="text"
+      placeholder="Filtro"
+      className="bg-zinc-200 text-black rounded-md px-4 py-2 w-1/3"
+    />
+  </div>
+
+  {/* Mapa Interativo em tempo real */}
+  <Card className="h-[400px]">
+  <CardContent className="h-full relative rounded-lg overflow-hidden p-0">
+    <Mapa />
+  </CardContent>
+</Card>
+
+
+
+</Card>
+
         </div>
 
-        {/* Right - Painéis Laterais */}
-        <div className="col-span-2 space-y-4">
-          <div className="grid grid-cols-2 gap-2">
-            <Card><CardContent className="h-6" /></Card>
-            <Card><CardContent className="h-6" /></Card>
-          </div>
-          {[...Array(3)].map((_, i) => (
-            <Card key={i}><CardContent className="h-20" /></Card>
+{/* Painel lateral fixo e responsivo */}
+<div className="col-span-2 h-full">
+  <div className="bg-blue-900 p-4 rounded-xl space-y-4 h-full flex flex-col">
+    {/* Inputs */}
+    <div className="flex gap-2 mb-2">
+      <input
+        type="text"
+        className="bg-white rounded-md px-4 py-2 w-full"
+        placeholder="Busca"
+      />
+      <input
+        type="text"
+        className="bg-white rounded-md px-3 py-2 w-10"
+        placeholder=""
+      />
+    </div>
+
+    {/* Cards cinzas preenchendo a altura disponível */}
+    <div className="flex flex-col gap-4 flex-grow">
+      {[...Array(3)].map((_, i) => (
+        <div
+          key={i}
+          className="bg-zinc-300 rounded-lg flex-grow min-h-[80px]"
+        />
+      ))}
+    </div>
+  </div>
+</div>
+
+
+      </div>
+
+{/* Controles e Tabela (baseado na imagem) */}
+<div className="p-4">
+  <div className="rounded-xl border-4 border-blue-900 overflow-hidden">
+    {/* Topo azul com inputs */}
+    <div className="bg-blue-900 p-4 flex flex-wrap gap-4 items-center">
+      <input type="text" className="rounded-md px-4 py-2 w-32" placeholder="" />
+      {/* <input type="text" className="rounded-md px-4 py-2 w-8" placeholder="" />
+      <input type="text" className="rounded-md px-4 py-2 w-40" placeholder="" />
+      <input type="text" className="rounded-md px-4 py-2 w-10" placeholder="" /> */}
+    </div>
+
+    {/* Botões DEFINIR */}
+    <div className="bg-[rgba(45,67,63)] text-white grid grid-cols-6 text-center">
+      {[...Array(6)].map((_, i) => (
+        <div key={i} className="p-2 border-r border-gray-400 text-xs font-medium">
+          DEFINIR
+        </div>
+      ))}
+    </div>
+
+    {/* Linhas da Tabela */}
+    <div>
+      {[...Array(4)].map((_, rowIndex) => (
+        <div
+          key={rowIndex}
+          className={`grid grid-cols-6 text-center text-sm ${
+            rowIndex % 2 === 0 ? 'bg-white text-black' : 'bg-[rgba(45,67,63)] text-white'
+          }`}
+        >
+          {[...Array(6)].map((_, colIndex) => (
+            <div key={colIndex} className="p-4 border-r border-gray-300">
+              |
+            </div>
           ))}
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
 
-      {/* Controles e Tabela */}
-      <div className="p-4 space-y-4">
-        <div className="grid grid-cols-12 gap-4 items-center">
-          <Card className="col-span-2"><CardContent className="h-6" /></Card>
-          <div className="col-span-10 grid grid-cols-6 gap-2">
-            {[...Array(6)].map((_, i) => (
-              <button
-                key={i}
-                className="bg-zinc-800 text-white rounded px-2 py-1 text-sm"
-              >
-                DEFINIR
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Cabeçalho da Tabela */}
-        <div className="grid grid-cols-6 gap-px bg-zinc-800 text-white font-medium text-center">
-          <div className="bg-zinc-700 p-2">Nome</div>
-          <div className="bg-zinc-700 p-2">Categoria</div>
-          <div className="bg-zinc-700 p-2">Preço</div>
-          <div className="bg-zinc-700 p-2">Estoque</div>
-          <div className="bg-zinc-700 p-2">Fornecedor</div>
-          <div className="bg-zinc-700 p-2">Ações</div>
-        </div>
-
-        {/* Linhas com Dados */}
-        {produtos.map((produto) => (
-          <div key={produto.id} className="grid grid-cols-6 gap-px bg-zinc-800 text-sm text-center">
-            <div className="bg-zinc-200 p-2">{produto.nome}</div>
-            <div className="bg-zinc-200 p-2">{produto.categoria}</div>
-            <div className="bg-zinc-200 p-2">{produto.preco}</div>
-            <div className="bg-zinc-200 p-2">{produto.estoque}</div>
-            <div className="bg-zinc-200 p-2">{produto.fornecedor}</div>
-            <div className="bg-zinc-200 p-2">
-              <button className="bg-red-600 text-white px-2 py-1 rounded text-xs">
-                Remover
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }

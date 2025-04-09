@@ -170,20 +170,25 @@ export default function GestaoAcessos() {
                   </div>
                 </div>
 
-                {/* Permissões de acesso */}
-                <div className="mt-6">
-                  <Label className="text-xs block mb-2">CONTROLE DE ACESSO</Label>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
-                    {permissoes.map((permissao) => (
-                      <div key={permissao.id} className="bg-gray-200 p-2 rounded-md flex items-center">
-                        <Checkbox id={permissao.id} className="mr-2" />
-                        <Label htmlFor={permissao.id} className="text-xs cursor-pointer">
-                          {permissao.nome}
-                        </Label>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+{/* Permissões de acesso */}
+<div className="mt-6">
+  <Card className="bg-zinc-100">
+    <CardContent className="p-4">
+      <Label className="text-xs block mb-2">CONTROLE DE ACESSO</Label>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        {permissoes.map((permissao) => (
+          <div key={permissao.id} className="bg-gray-200 p-2 rounded-md flex items-center">
+            <Checkbox id={permissao.id} className="mr-2" />
+            <Label htmlFor={permissao.id} className="text-xs cursor-pointer">
+              {permissao.nome}
+            </Label>
+          </div>
+        ))}
+      </div>
+    </CardContent>
+  </Card>
+</div>
+
               </div>
             </div>
           </CardContent>
