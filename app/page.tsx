@@ -31,7 +31,7 @@ export default function LoginPage() {
       await new Promise((resolve) => setTimeout(resolve, 1000)) // Simula loading
 
       // Login fixo com usuário
-      if (username === "admin" && password === "123456") {
+      if (username === "admin" && password === "admin") {
         document.cookie = "auth=true; path=/"
         router.push("/dashboard-mapa-grande")
       } else {
