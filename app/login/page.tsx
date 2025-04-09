@@ -31,9 +31,9 @@ export default function LoginPage() {
       await new Promise((resolve) => setTimeout(resolve, 1000)) // Simula loading
 
       // Login fixo
-      if (email === "admin@admin.com" && password === "admin") {
+      if (email === "admin" && password === "admin") {
         document.cookie = "auth=true; path=/"
-        router.push("/inicial")
+        router.push("/dashboard-mapa-grande")
       } else {
         setError("Credenciais inválidas. Tente novamente.")
       }

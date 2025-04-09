@@ -1,36 +1,21 @@
-import Link from "next/link"
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Header } from "@/components/layout/header"
+import { useRouter } from "next/navigation"
 
 export default function EstoqueGeral() {
+  const router = useRouter()
+
   return (
     <div className="flex min-h-screen flex-col">
-      <Header></Header>
-      {/* <header className="sticky top-0 z-10 border-b bg-background">
-        <div className="container flex h-14 items-center px-4">
-          <h1 className="text-lg font-semibold">Sistema de Controle de Estoque</h1>
-          <nav className="ml-auto flex gap-4">
-            <Link href="/">
-              <Button variant="ghost">Início</Button>
-            </Link>
-            <Link href="/estoque-geral">
-              <Button variant="ghost">Estoque Geral</Button>
-            </Link>
-            <Link href="/estoque-individual">
-              <Button variant="ghost">Estoque Individual</Button>
-            </Link>
-            <Link href="/historico">
-              <Button variant="ghost">Histórico</Button>
-            </Link>
-          </nav>
-        </div>
-      </header> */}
-      <main className="flex-1 container py-6">
+      <Header />
+      <main className="flex-1 container max-w-full px-6 py-6">
         <div className="space-y-4">
           <h2 className="text-2xl font-bold tracking-tight">ESTOQUE GERAL</h2>
-          <Card>
+          <Card className="w-full">
             <CardHeader className="pb-2">
               <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div className="w-full md:w-1/3">
@@ -38,7 +23,9 @@ export default function EstoqueGeral() {
                 </div>
                 <div className="flex gap-2">
                   <Button variant="outline">Exportar</Button>
-                  <Button>Adicionar Item</Button>
+                  <Button onClick={() => router.push('/form-estoque')}>
+                    Adicionar Item
+                  </Button>
                 </div>
               </div>
             </CardHeader>
