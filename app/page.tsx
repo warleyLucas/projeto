@@ -1,6 +1,5 @@
 "use client"
 
-import type React from "react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
@@ -10,7 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Building2 } from "lucide-react"
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("")
+  const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
@@ -20,20 +19,21 @@ export default function LoginPage() {
     e.preventDefault()
     setError("")
 
-    if (!email || !password) {
-      setError("Por favor, preencha todos os campos.")
-      return
+    if (username === "admin" && password === "123456") {
+      document.cookie = "auth=true; path=/"
+      router.push("/dashboard-mapa-grande")
     }
+    
 
     setLoading(true)
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000)) // Simula loading
 
-      // Login fixo
-      if (email === "admin@admin.com" && password === "admin") {
+      // Login fixo com usuário
+      if (username === "admin" && password === "123456") {
         document.cookie = "auth=true; path=/"
-        router.push("/inicial")
+        router.push("/dashboard-mapa-grande")
       } else {
         setError("Credenciais inválidas. Tente novamente.")
       }
@@ -52,18 +52,20 @@ export default function LoginPage() {
             <Building2 className="h-10 w-10 text-primary" />
           </div>
           <CardTitle className="text-2xl font-bold text-center">Sistema de Patrimônio</CardTitle>
-          <CardDescription className="text-center">Entre com suas credenciais para acessar o sistema</CardDescription>
+          <CardDescription className="text-center">
+            Entre com seu usuário para acessar o sistema
+          </CardDescription>
         </CardHeader>
         <form onSubmit={handleSubmit}>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="username">Usuário</Label>
               <Input
-                id="email"
-                type="email"
+                id="username"
+                type="text"
                 placeholder="admin"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </div>
@@ -77,7 +79,7 @@ export default function LoginPage() {
               <Input
                 id="password"
                 type="password"
-                placeholder="admin"
+                placeholder="123456"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
