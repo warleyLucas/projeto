@@ -7,26 +7,7 @@ import { Header } from "@/components/layout/header"
 export default function Historico() {
   return (
     <div className="flex min-h-screen flex-col">
-      <Header></Header>
-      {/* <header className="sticky top-0 z-10 border-b bg-background">
-        <div className="container flex h-14 items-center px-4">
-          <h1 className="text-lg font-semibold">Sistema de Controle de Estoque</h1>
-          <nav className="ml-auto flex gap-4">
-            <Link href="/">
-              <Button variant="ghost">Início</Button>
-            </Link>
-            <Link href="/estoque-geral">
-              <Button variant="ghost">Estoque Geral</Button>
-            </Link>
-            <Link href="/estoque-individual">
-              <Button variant="ghost">Estoque Individual</Button>
-            </Link>
-            <Link href="/historico">
-              <Button variant="ghost">Histórico</Button>
-            </Link>
-          </nav>
-        </div>
-      </header> */}
+      <Header />
       <main className="flex-1 container py-6">
         <div className="space-y-4">
           <h2 className="text-2xl font-bold tracking-tight">HISTÓRICO DE MOVIMENTAÇÃO</h2>
@@ -44,21 +25,26 @@ export default function Historico() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border px-4 py-2 text-left text-xs">DATA</th>
-                      <th className="border px-4 py-2 text-left text-xs">CÓDIGO</th>
-                      <th className="border px-4 py-2 text-left text-xs">ITEM</th>
-                      <th className="border px-4 py-2 text-left text-xs">ENTRADA</th>
-                      <th className="border px-4 py-2 text-left text-xs">SAÍDA</th>
-                      <th className="border px-4 py-2 text-left text-xs">USUÁRIO</th>
+                <table className="w-full border-collapse text-sm">
+                  <thead className="bg-gray-100 dark:bg-gray-800">
+                    <tr>
+                      <th className="border px-4 py-2 text-left text-xs text-muted-foreground">DATA</th>
+                      <th className="border px-4 py-2 text-left text-xs text-muted-foreground">CÓDIGO</th>
+                      <th className="border px-4 py-2 text-left text-xs text-muted-foreground">ITEM</th>
+                      <th className="border px-4 py-2 text-left text-xs text-muted-foreground">ENTRADA</th>
+                      <th className="border px-4 py-2 text-left text-xs text-muted-foreground">SAÍDA</th>
+                      <th className="border px-4 py-2 text-left text-xs text-muted-foreground">USUÁRIO</th>
                     </tr>
                   </thead>
                   <tbody>
                     {Array.from({ length: 10 }).map((_, i) => (
-                      <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : ""}>
-                        <td className="border px-4 py-2 text-xs">{`${(new Date()).getDate()}/${new Date().getMonth() + 1}/${(new Date()).getFullYear()}`}</td>
+                      <tr
+                        key={i}
+                        className={i % 2 === 0 ? "bg-white dark:bg-gray-900" : "bg-gray-50 dark:bg-gray-800"}
+                      >
+                        <td className="border px-4 py-2 text-xs">
+                          {`${new Date().getDate()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`}
+                        </td>
                         <td className="border px-4 py-2 text-xs">{1000 + i}</td>
                         <td className="border px-4 py-2 text-xs">Item {i + 1}</td>
                         <td className="border px-4 py-2 text-xs">{i % 2 === 0 ? Math.floor(Math.random() * 10) : 0}</td>

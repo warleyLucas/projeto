@@ -30,10 +30,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-10 border-b bg-[rgba(21,45,93)]">
       <div className="container mx-auto flex h-14 items-center justify-between px-4">
-        {/* Logo */}
-        <Link href="/inicial">
-          <Image src="/logo.svg" alt="Logo" width={100} height={100} />
-        </Link>
+        {/* H1 NO LUGAR DA LOGO */}
+        <h1 className="text-white">GESTÃO DE ACESSOS</h1>
 
         {/* Mobile Toggle */}
         <div className="md:hidden">

@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Header } from "@/components/layout/headergestao"
 
 export default function GestaoAcessos() {
   const [selectedUser, setSelectedUser] = useState("usuario1")
@@ -33,16 +34,17 @@ export default function GestaoAcessos() {
 
   return (
     <div className="flex min-h-screen flex-col bg-gray-100">
-      <header className="sticky top-0 z-10 border-b bg-background">
+      <Header />
+      {/* <header className="sticky top-0 z-10 border-b bg-background">
         <div className="container flex h-14 items-center px-4">
           <h1 className="text-lg font-semibold">Sistema de Gestão</h1>
         </div>
-      </header>
+      </header> */}
       <main className="flex-1 container py-6">
         <Card className="border-0 shadow-md">
-          <CardHeader className="bg-gray-200 py-2">
+          {/* <CardHeader className="bg-gray-200 py-2">
             <CardTitle className="text-md font-medium">GESTÃO DE ACESSOS</CardTitle>
-          </CardHeader>
+          </CardHeader> */}
           <CardContent className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               {/* Lista de usuários */}
