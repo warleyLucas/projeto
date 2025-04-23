@@ -18,6 +18,7 @@ import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import { Header } from "./layout/header"
 
 const formSchema = z.object({
   codigo: z.string().min(1, { message: "Código é obrigatório" }),

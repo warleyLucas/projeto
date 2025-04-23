@@ -1,4 +1,4 @@
-import { AssetRegistrationForm } from "@/components/page"
+import { AssetRegistrationForm } from "@/components/form"
 
 export default function Home() {
   return (
