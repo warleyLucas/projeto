@@ -51,6 +51,19 @@ export default function Home() {
               <Button className="mt-4">Acessar</Button>
             </CardContent>
           </Card>
+
+          <Card className="bg-white dark:bg-gray-900 shadow-md">
+            <CardHeader>
+              <CardTitle className="text-gray-900 dark:text-white">Historico</CardTitle>
+              <CardDescription className="text-gray-600 dark:text-gray-400">movimentação de patrimonio</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-700 dark:text-gray-300">Acesse o painel de movimentações.</p>
+              <Link href="/notify">
+              <Button className="mt-4">Acessar</Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
       </main>
     </div>

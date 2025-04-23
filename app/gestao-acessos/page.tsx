@@ -35,16 +35,8 @@ export default function GestaoAcessos() {
   return (
     <div className="flex min-h-screen flex-col bg-gray-100">
       <Header />
-      {/* <header className="sticky top-0 z-10 border-b bg-background">
-        <div className="container flex h-14 items-center px-4">
-          <h1 className="text-lg font-semibold">Sistema de Gestão</h1>
-        </div>
-      </header> */}
       <main className="flex-1 container py-6">
         <Card className="border-0 shadow-md">
-          {/* <CardHeader className="bg-gray-200 py-2">
-            <CardTitle className="text-md font-medium">GESTÃO DE ACESSOS</CardTitle>
-          </CardHeader> */}
           <CardContent className="p-6">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               {/* Lista de usuários */}

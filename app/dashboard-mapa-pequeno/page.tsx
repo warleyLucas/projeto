@@ -6,11 +6,6 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-white text-black">
       <Header></Header>
-      {/* Header */}
-      {/* <header className="bg-zinc-900 text-white p-4 text-xl font-semibold">
-        DASHBOARD/PAINEL DE CONTROLE
-      </header> */}
-
       {/* Subheader */}
       <div className="bg-zinc-400 h-6 w-full" />
 

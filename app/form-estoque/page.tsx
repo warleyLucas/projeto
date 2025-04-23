@@ -1,4 +1,3 @@
-import { Forms } from "@/components/forms"
 import { AssetRegistrationForm } from "@/components/page"
 
 export default function Home() {
