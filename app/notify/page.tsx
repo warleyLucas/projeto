@@ -9,7 +9,7 @@ export default function Home() {
       <div className="container mx-auto py-4 sm:py-8 px-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 sm:mb-6">
           <Button variant="outline" size="sm" className="w-fit flex items-center gap-1" asChild>
-            <Link href="/">
+            <Link href="/inicial">
               <ArrowLeft className="h-4 w-4" />
               <span>Voltar</span>
             </Link>
