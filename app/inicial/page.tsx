@@ -35,7 +35,7 @@ export default function Home() {
             </CardHeader>
             <CardContent>
               <p className="text-gray-700 dark:text-gray-300">Gerencie os usuários e permissões do sistema.</p>
-              <Link href="/gestao-acessos">
+              <Link href="/gestao-acesso2">
                 <Button className="mt-4">Acessar</Button>
               </Link>
             </CardContent>
