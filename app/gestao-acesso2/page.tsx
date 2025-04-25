@@ -352,10 +352,10 @@ function TabelaUsuarios({
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>
-              {usuarioParaAlterarStatus?.status === "Inativo" ? "Ativar Usuário" : "Inativar Usuário"}
+              {usuarioParaAlterarStatus?.status === "Ativo" ? "Ativar Usuário" : "Inativar Usuário"}
             </DialogTitle>
             <DialogDescription>
-              {usuarioParaAlterarStatus?.status === "Inativo"
+              {usuarioParaAlterarStatus?.status === "Ativo"
                 ? "Deseja ativar este usuário? Ele poderá acessar o sistema novamente."
                 : "Deseja inativar este usuário? Ele não poderá mais acessar o sistema."}
             </DialogDescription>
@@ -365,7 +365,7 @@ function TabelaUsuarios({
               Cancelar
             </Button>
             <Button
-              variant={usuarioParaAlterarStatus?.status === "Inativo" ? "default" : "secondary"}
+              variant={usuarioParaAlterarStatus?.status === "Ativo" ? "default" : "secondary"}
               onClick={() => {
                 if (usuarioParaAlterarStatus !== null) {
                   onAlterarStatus(usuarioParaAlterarStatus.id, usuarioParaAlterarStatus.status)
@@ -373,7 +373,7 @@ function TabelaUsuarios({
                 }
               }}
             >
-              {usuarioParaAlterarStatus?.status === "Inativo" ? "Ativar" : "Inativar"}
+              {usuarioParaAlterarStatus?.status === "Ativo" ? "Ativar" : "Inativar"}
             </Button>
           </div>
         </DialogContent>
